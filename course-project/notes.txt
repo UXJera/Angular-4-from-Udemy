@@ -1,0 +1,24 @@
+The first step is to layout the structure. What components do we need??
+
+Recipe Book : Feature
+
+Shopping List : Feature
+
+
+Root : Component
+  -- Holding the overall app
+Header : Component
+
+Shopping List :features
+  -- Shopping List : Component
+  -- Shopping List Edit : Component
+  ** Ingredient : Model
+
+Recipe Book :features
+  -- Recipe Component
+    -- Recipe List :component
+    -- Recipe Item :component
+    -- Recipe Detail :component
+    ** Recipe : Model (title, desc, so on)
+
+Which model (data) should we use?
