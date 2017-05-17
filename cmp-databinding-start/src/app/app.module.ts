@@ -5,13 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
-import { ServerElementtComponent } from './server-elementt/server-elementt.component';
+import { ServerElementComponent } from './server-element/server-element.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CockpitComponent,
-    ServerElementtComponent
+    ServerElementComponent
   ],
   imports: [
     BrowserModule,
