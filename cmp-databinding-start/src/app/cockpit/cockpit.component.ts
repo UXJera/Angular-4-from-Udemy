@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -6,6 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
+
+  // New properties created for app.component
+  @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+  @Output() blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+  // @Output() is the angular function we use to output the data
+  // <> is used to define the type of event data we are going to emit
+  // {} is what event we define, this one takes the object from /app/app.component.ts of the onServerAdded() method
+  // () at the end is to call the event
+
   newServerName = '';
   newServerContent = '';
 
@@ -15,19 +24,20 @@ export class CockpitComponent implements OnInit {
   }
 
   onAddServer() {
-  //   this.serverElements.push({
-  //     type: 'server',
-  //     name: this.newServerName,
-  //     content: this.newServerContent
-  //   });
+    this.serverCreated.emit({
+      // a new event will be emitted
+      serverName: this.newServerName,
+      serverContent: this.newServerContent
+    });
+
   }
 
   onAddBlueprint() {
-    // this.serverElements.push({
-    //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+    this.blueprintCreated.emit({
+      // a new event will be emitted
+      serverName: this.newServerName,
+      serverContent: this.newServerContent
+    });
   }
 
 
