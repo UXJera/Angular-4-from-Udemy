@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -15,8 +15,10 @@ export class CockpitComponent implements OnInit {
   // {} is what event we define, this one takes the object from /app/app.component.ts of the onServerAdded() method
   // () at the end is to call the event
 
-  newServerName = '';
-  newServerContent = '';
+  // We only need to use the following variables if we are using [(ngModel)] for 2-way data binding
+  // newServerName = '';
+  // newServerContent = '';
+  @ViewChild('serverContentInput') serverContentInput;
 
   constructor() { }
 
@@ -27,7 +29,7 @@ export class CockpitComponent implements OnInit {
     this.serverCreated.emit({
       // a new event will be emitted
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
 
   }
@@ -35,7 +37,7 @@ export class CockpitComponent implements OnInit {
   onAddBlueprint(nameInput: HTMLInputElement) {
     this.blueprintCreated.emit({
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
