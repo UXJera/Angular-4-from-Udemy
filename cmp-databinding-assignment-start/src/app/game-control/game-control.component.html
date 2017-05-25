@@ -1,0 +1,7 @@
+
+<button type="text" name="button" class="btn btn-success"
+[disabled]="!gameOn" (click)="onGameStart($event)">Start</button>
+
+<button type="text" name="button" class="btn btn-danger" [disabled]="gameOn" (click)="onGamePause($event)">End</button>
+
+<button type="text" name="button" class="btn btn-warning"  (click)="onGameReset()">Reset</button>
