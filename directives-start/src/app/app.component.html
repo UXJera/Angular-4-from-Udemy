@@ -23,11 +23,22 @@
             {{ even }}
           </li>
         </div>
+        <!-- <ng-template [ngIf]="!onlyOdd">
+          <div>
+          <p>This is a ng-template render</p>
+            <li
+              class="list-group-item"
+              [ngClass]="{odd: even % 2 != 0}"
+              *ngFor="let even of evenNumbers">
+              {{ even }}
+            </li>
+          </div>
+        </ng-template> -->
       </ul>
 
       <p appBasicHighlight> Style me with basic directive!</p>
       <p [appBetterHighlight]="'red'" defaultColor="yellow">
-        <!-- If you take out [] from [defaultColor] you can also remove the '' from "'yellow'" --> 
+        <!-- If you take out [] from [defaultColor] you can also remove the '' from "'yellow'" -->
         Style me with better directive!</p>
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
