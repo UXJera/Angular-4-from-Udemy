@@ -14,6 +14,8 @@ import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+
 
 @NgModule({
   declarations: [
@@ -25,9 +27,11 @@ import { FooterComponent } from './footer/footer.component';
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,
-    
+
     HeaderComponent,
     FooterComponent,
+    DropdownDirective,
+
   ],
   imports: [
     BrowserModule,
