@@ -7,6 +7,7 @@ import { LoggingService } from '../logging.service';
   styleUrls: ['./new-account.component.css'],
   providers: [LoggingService]
 })
+
 export class NewAccountComponent {
   @Output() accountAdded = new EventEmitter<{name: string, status: string}>();
 
@@ -17,6 +18,7 @@ export class NewAccountComponent {
       name: accountName,
       status: accountStatus
     });
+    this.loggingService.logStatusChange(accountStatus);
 
   }
 }
