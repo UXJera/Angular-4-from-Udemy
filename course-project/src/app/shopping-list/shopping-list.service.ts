@@ -21,4 +21,14 @@ export class ShoppingListService {
 
   constructor() { }
 
+  addIngredients(ingredients: Ingredient[]) {
+    // for (let ingredient of ingredients) {
+    //   this.addIngredient(ingredient);
+    // }
+    // The way above is alright when dealing with smaller amounts of data, but the next version is better.
+    // The ... is ES6 for spread
+    this.ingredients.push(...ingredients);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
+
 }
