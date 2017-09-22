@@ -43,6 +43,9 @@ const appRoutes: Routes = [
     imports: [
       RouterModule.forRoot(appRoutes)
       //This is where our Routes will be registered
+
+      // Below is a fallback
+      //RouterModule.forRoot(appRoutes, {useHash: true})
     ],
     exports: [RouterModule]
   })
