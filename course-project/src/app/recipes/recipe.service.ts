@@ -34,6 +34,12 @@ export class RecipeService {
     //This will return a new array that's a copy of the original, meaning you can't access or edit the original from outside.
   }
 
+  getRecipe(index: number) {
+    return this.recipes[index];
+    // Added this to work with out recipe-detail.component
+    // This returns the recipe with the index value retrieved by the function
+  }
+
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
