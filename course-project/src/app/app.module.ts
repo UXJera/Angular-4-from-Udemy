@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     HeaderComponent,
     FooterComponent,
     DropdownDirective,
+    RecipeStartComponent,
 
   ],
   imports: [
