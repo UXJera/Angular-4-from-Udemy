@@ -9,6 +9,7 @@ import {Subscription} from 'rxjs/Subscription';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit, OnDestroy {
   numbersObsSubscription: Subscription;
   customObsSubscription: Subscription;

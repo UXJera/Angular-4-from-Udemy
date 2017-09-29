@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import {UsersService} from './users.service';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +10,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class UserComponent implements OnInit {
   id: number;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    private usersService: UsersService) { }
 
   ngOnInit() {
     this.route.params
@@ -29,6 +31,11 @@ export class UserComponent implements OnInit {
         // We subscribing to an observable which wraps a data source (the data source being code in` angular which emits a new parameter whenever we click a link)
         // Once the click resolves, the data package is pushed and recieved by our subsriber (the 3 methods inside the .subscribe() ).
       );
+  }
+
+  onActivate() {
+    this.usersService.userActivated.next(this.id);
+    // A new data package containing this id is sent
   }
 
 }
