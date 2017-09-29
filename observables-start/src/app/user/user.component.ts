@@ -26,7 +26,7 @@ export class UserComponent implements OnInit {
         }
         // subscribe takes 3 arguments: Handle Data, Handle Error, and Handle Complete
         // The only Handle that makes sense is the first one
-        // We subscribing to an observable which wraps a data source (the data source being code in angular which emits a new parameter whenever we click a link)
+        // We subscribing to an observable which wraps a data source (the data source being code in` angular which emits a new parameter whenever we click a link)
         // Once the click resolves, the data package is pushed and recieved by our subsriber (the 3 methods inside the .subscribe() ).
       );
   }
