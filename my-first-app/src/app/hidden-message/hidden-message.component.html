@@ -1,7 +1,0 @@
-<button class="btn btn-primary" (click)="onDisplayHiddenMessage()"> Display Details</button>
-<p *ngIf="hiddenMessage">This is a hidden Message.<br /> It is a paragraph with some things going on.<br /> Click the button above to hide this message.</p>
-
-<div *ngFor="let item of clickArray; let i = index"
- [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
- [ngClass]="{'white-text': i >= 4}"
->{{ item }}</div>
