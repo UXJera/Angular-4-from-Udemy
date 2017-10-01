@@ -12,7 +12,13 @@ $RECYCLE.BIN/
 */node_modules
 
 # Compressed Files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
 *.rar
+*.tar
 *.zip
 
 # Windows Installer files
@@ -52,3 +58,4 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.rar
