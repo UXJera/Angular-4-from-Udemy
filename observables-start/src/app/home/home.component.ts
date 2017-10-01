@@ -18,8 +18,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    const myNumbers = Observable.interval(1000);
+    const myNumbers = Observable.interval(1000)
     // A new piece of data will be emitted every 1000ms or 1 second
+    .map(
+      (data: number) => {
+        return data * 2;
+      }
+    );
     this.numbersObsSubscription = myNumbers.subscribe(
       // We are saving the subscription to a variable (which has the class of subscription), meaning nothing will really change as far as output goes, but it is easier to stop the code from running infinitely
       (number: Number) => {
