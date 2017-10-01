@@ -11,6 +11,10 @@ $RECYCLE.BIN/
 # dependencies
 */node_modules
 
+# Compressed Files
+*.rar
+*.zip
+
 # Windows Installer files
 *.cab
 *.msi
