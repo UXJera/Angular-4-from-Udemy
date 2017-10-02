@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
         <!-- Sometimes there is code in the form pointing it for what actions to take and which server to send it to, but we don't want to send it to a server so there is no extra data-->
         <!-- We want Angular to handle the HTTP request-->
         <!-- the #f is a local variable that we are calling back into the onSubmit to get the information-->
