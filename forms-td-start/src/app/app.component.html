@@ -6,7 +6,7 @@
         <!-- We want Angular to handle the HTTP request-->
         <!-- the #f is a local variable that we are calling back into the onSubmit to get the information-->
         <!-- The #f="ngForm" tells Angular to please give access to the form created automatically-->
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData">
           <div class="form-group">
             <label for="username">Username</label>
             <input
