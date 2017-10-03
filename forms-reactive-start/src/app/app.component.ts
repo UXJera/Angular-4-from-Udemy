@@ -32,10 +32,24 @@ export class AppComponent implements OnInit{
       // Checks status. for IE, we have an async validator
       // INVALID => PENDING => VALID
     );
+    this.signupForm.setValue({
+      'userData' : {
+        'username': 'Max',
+        'email': 'Max@test.com'
+      },
+      'gender': 'male',
+      'hobbies': []
+    });
+    this.signupForm.patchValue({
+      'userData' : {
+        'username': 'Anna',
+      }
+    });
   }
 
   onSubmit() {
     console.log(this.signupForm);
+    this.signupForm.reset();
   }
 
   onAddHobby() {
