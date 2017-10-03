@@ -14,8 +14,10 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     // We want to do this on OnInit before the page is rendered
     this.signupForm = new FormGroup({
-      'username': new FormControl(null, Validators.required),
-      'email':    new FormControl(null, [Validators.required, Validators.email]),
+      'userData': new FormGroup({
+        'username': new FormControl(null, Validators.required),
+        'email':    new FormControl(null, [Validators.required, Validators.email]),
+      }),
       'gender':   new FormControl('male')
     });
   }
