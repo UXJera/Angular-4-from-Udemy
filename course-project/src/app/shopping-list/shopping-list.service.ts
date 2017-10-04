@@ -32,6 +32,13 @@ export class ShoppingListService {
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    // This finds the ingredient we want and removes it
+    this.ingredientsChanged.next(this.ingredients.slice());
+    // Now we pass a copy of the ingredients
+  }
+
   constructor() { }
 
   addIngredients(ingredients: Ingredient[]) {
@@ -43,5 +50,6 @@ export class ShoppingListService {
     this.ingredients.push(...ingredients);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
+
 
 }
