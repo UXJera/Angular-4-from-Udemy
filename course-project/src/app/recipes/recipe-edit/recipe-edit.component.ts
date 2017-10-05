@@ -67,6 +67,10 @@ export class RecipeEditComponent implements OnInit {
     this.router.navigate(['../'], {relativeTo: this.route}); // This will take you 1 page back
   }
 
+  onDeleteIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+  }
+
 
   // This is responsible for initializing our form
   private initForm() {
