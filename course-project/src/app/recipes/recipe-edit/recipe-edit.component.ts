@@ -33,6 +33,18 @@ export class RecipeEditComponent implements OnInit {
     console.log(this.recipeForm);
   }
 
+  onAddIngredient() {
+    // <FormArray> is an explicit cast for Typescript
+    // This will convert to this to a FormArray
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        // We don't push a control here, we need multiple inputs
+        'name' : new FormControl(),
+        'amount' : new FormControl()
+      })
+    )
+  }
+
   // This is responsible for initializing our form
   private initForm() {
 
