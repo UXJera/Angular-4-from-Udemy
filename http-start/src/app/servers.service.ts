@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class ServersService {
@@ -18,6 +19,12 @@ export class ServersService {
   }
 
   getServers() {
-    return this.http.get(this.dbServer);
+    return this.http.get(this.dbServer)
+      .map(
+        (response: Response) => {
+          const data = response.json();
+          return data;
+        }
+      );
   }
 }
