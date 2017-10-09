@@ -11,9 +11,10 @@ export class ServersService {
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this.http.post(this.dbServer, servers,
+    return this.http.put(this.dbServer, servers,
       {headers: headers});
-      // This is an observable
+    // return this.http.post(this.dbServer, servers,
+    //   {headers: headers});
   }
 
   getServers() {
