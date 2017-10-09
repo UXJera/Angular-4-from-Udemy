@@ -5,9 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { ShortenPipe } from './shorten.pipe';
+import { ShortnamePipe } from './shortname.pipe';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShortenPipe,
+    ShortnamePipe
   ],
   imports: [
     BrowserModule,
