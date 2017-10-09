@@ -13,5 +13,10 @@ export class ServersService {
     });
     return this.http.post(this.dbServer, servers,
       {headers: headers});
+      // This is an observable
+  }
+
+  getServers() {
+    return this.http.get(this.dbServer);
   }
 }

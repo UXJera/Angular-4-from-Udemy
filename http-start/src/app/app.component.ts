@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Response} from '@angular/http';
+
 import {ServersService} from './servers.service';
 
 @Component({
@@ -31,9 +33,21 @@ export class AppComponent {
 
   onSave() {
     this.serversService.storeServers(this.servers).subscribe(
-      (response) => {console.log(response)},
-      (error) => {console.log(error)}
+      (response) => console.log(response),
+      (error) => console.log(error)
     );
+  }
+
+  onGet() {
+    this.serversService.getServers().subscribe(
+      (response: Response) => {
+        const data = response.json();
+        // json extracts the data
+        console.log(data);
+      },
+      (error) => console.log(error)
+    )
+    // Data is returned as JSON
   }
 
   private generateId() {
