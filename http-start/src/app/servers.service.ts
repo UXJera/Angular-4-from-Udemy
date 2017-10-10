@@ -36,4 +36,12 @@ export class ServersService {
         }
       )
   }
+
+  getAppName() {
+    return this.http.get('https://udemy-ng-http-2b3a2.firebaseio.com/data/appName.json').map(
+      (response: Response) => {
+        return response.json();
+      }
+    )
+  }
 }

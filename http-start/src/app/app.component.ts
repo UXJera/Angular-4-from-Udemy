@@ -8,6 +8,7 @@ import {ServersService} from './servers.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  appName = this.serversService.getAppName();
   servers = [
     {
       name: 'Testserver',
