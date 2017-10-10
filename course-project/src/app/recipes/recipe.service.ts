@@ -29,6 +29,11 @@ export class RecipeService {
 
   constructor(private slService: ShoppingListService) {}
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   getRecipes() {
     return this.recipes.slice();
     //This will return a new array that's a copy of the original, meaning you can't access or edit the original from outside.
@@ -58,4 +63,5 @@ export class RecipeService {
     this.recipes.splice(index, 1); // Remove the recipe at this index
     this.recipesChanged.next(this.recipes.slice()); // Return a copy of the updated recipes variable
   }
+
 }
