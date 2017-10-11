@@ -27,4 +27,8 @@ export class HeaderComponent {
   onFetchData() {
     this.dataStorageService.getRecipes(); // We don't need to subscribe because we are already doing it inside the DataStorageService
   }
+
+  onLogout() {
+    this.authService.logout();
+  }
 }
