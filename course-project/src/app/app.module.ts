@@ -22,8 +22,8 @@ import { FooterComponent } from './footer/footer.component';
 
 import { DataStorageService} from './shared/data-storage.service';
 
-import {AuthService} from './auth/auth.service';
-import {AuthGuard}  from './auth/auth-guard.service';
+import { AuthService} from './auth/auth.service';
+import { AuthGuard }  from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [
