@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 //import { DropdownDirective } from '../shared/dropdown.directive';
 
+import { RecipesRoutingModule } from './recipes-routing.module';
+
 import { RecipesComponent } from './recipes.component';
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
@@ -25,6 +27,7 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
   imports: [
     CommonModule, // Give access to common directives
     ReactiveFormsModule,
+    RecipesRoutingModule
   ],
 })
 export class RecipesModule { }
