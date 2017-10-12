@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-//import { DropdownDirective } from '../shared/dropdown.directive';
+import { SharedModule } from '../shared/shared.module';
 
 import { RecipesRoutingModule } from './recipes-routing.module';
 
@@ -16,7 +16,6 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 @NgModule({
   declarations: [
     //DropdownDirective, // You cannot duplicate declarations in multiple modules
-
     RecipesComponent,
     RecipeStartComponent,
     RecipeListComponent,
@@ -27,7 +26,8 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
   imports: [
     CommonModule, // Give access to common directives
     ReactiveFormsModule,
-    RecipesRoutingModule
+    RecipesRoutingModule,
+    SharedModule
   ],
 })
 export class RecipesModule { }
