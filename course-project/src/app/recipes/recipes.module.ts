@@ -15,7 +15,6 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
-    //DropdownDirective, // You cannot duplicate declarations in multiple modules
     RecipesComponent,
     RecipeStartComponent,
     RecipeListComponent,

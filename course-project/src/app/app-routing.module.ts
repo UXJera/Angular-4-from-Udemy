@@ -1,13 +1,15 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from  '@angular/router';
 
+import {HomeComponent} from './home/home.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 
 
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/recipes', pathMatch: 'full'}, // {path: '', redirectTo: '/recipes'},
-  // We can't use this because '' empty route is a part of EVERY route
+  {path: '', component: HomeComponent},
+  {path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'},
+  //redirectTo: '/recipes', pathMatch: 'full'}, // {path: '', redirectTo: '/recipes'},
   {path: 'shopping-list', component: ShoppingListComponent},
 ];
 
