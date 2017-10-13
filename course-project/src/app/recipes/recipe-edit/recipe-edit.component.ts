@@ -67,6 +67,10 @@ export class RecipeEditComponent implements OnInit {
     this.router.navigate(['../'], {relativeTo: this.route}); // This will take you 1 page back
   }
 
+  getControls() {
+    return (<FormArray>this.recipeForm.get('ingredients')).controls;
+  }
+
   onDeleteIngredient(index: number) {
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
@@ -100,8 +104,6 @@ export class RecipeEditComponent implements OnInit {
         }
       }
     }
-    // If not, return the empty values
-
     this.recipeForm = new FormGroup({
       'name': new FormControl(recipeName, Validators.required),
       'imagePath' : new FormControl(recipeImagePath, Validators.required),
