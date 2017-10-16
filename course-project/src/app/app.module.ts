@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -17,7 +17,7 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     // At the point of time when the Module is launced, all of these other Modules are built.
     BrowserModule, // Contains CommonModule + more. Only use this module in app.module, and CommonModule for additional modules
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     ShoppingListModule,

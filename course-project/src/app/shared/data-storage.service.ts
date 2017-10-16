@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
+import { Response} from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import {RecipeService} from '../recipes/recipe.service';
 import {AuthService} from '../auth/auth.service';
@@ -11,7 +12,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class DataStorageService {
   constructor(
-    private http: Http,
+    private httpClient: HttpClient,
     private recipeService: RecipeService,
     private authService: AuthService
   ) {}
@@ -23,18 +24,20 @@ export class DataStorageService {
   storeRecipes() {
     const token = this.authService.getToken();
 
-    return this.http.put(this.dbServer + '?auth=' + token, this.recipeService.getRecipes());
-    // getRecipes will get a copy of the recipes and store them in an array
-    // We want to use PUT because we want to overwrite the old data
+    return this.httpClient.put(
+      this.dbServer + '?auth=' + token, // This is the URL where we want to send + the token for authentication
+      this.recipeService.getRecipes(), // We want to get our Recipes and overwrite them on the DB server
+    );
   }
 
   getRecipes() {
     const token = this.authService.getToken();
 
-    this.http.get(this.dbServer + '?auth=' + token)
+    this.httpClient.get<Recipe[]>(this.dbServer + '?auth=' + token) // <> explicitly tells what data we expect to get back
     .map(
-      (response: Response) => {
-        const recipes: Recipe[] = response.json();
+      // (response: Response) => { // This is for the .http.get()
+        // const recipes: Recipe[] = response.json(); needed for .http.get()
+      (recipes) => { // By default, the httpClient will automatically extract the body of the response
         for (let recipe of recipes) {
           if (!recipe['ingredients']) {
             console.log(recipe);
