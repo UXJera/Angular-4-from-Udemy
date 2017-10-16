@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Response} from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {RecipeService} from '../recipes/recipe.service';
 import {AuthService} from '../auth/auth.service';
@@ -23,12 +23,20 @@ export class DataStorageService {
 
   storeRecipes() {
     const token = this.authService.getToken();
+    //const header = new HttpHeaders().set('Authorization', 'Bearer <Token goes here>') // You can have this in the object below, or just make it into a variable and use that
+    // Firebase wont accept this Header, but other servers may, and this is how you do it
 
     return this.httpClient.put(
       this.dbServer + '?auth=' + token, // This is the URL where we want to send + the token for authentication
-      this.recipeService.getRecipes(), // We want to get our Recipes and overwrite them on the DB server
-    );
+      this.recipeService.getRecipes(), {// We want to get our Recipes and overwrite them on the DB server
+        observe: 'body',
+        //headers: header
+    });
   }
+
+
+
+
 
   getRecipes() {
     const token = this.authService.getToken();
