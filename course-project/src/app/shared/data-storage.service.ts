@@ -33,25 +33,41 @@ export class DataStorageService {
   getRecipes() {
     const token = this.authService.getToken();
 
-    this.httpClient.get<Recipe[]>(this.dbServer + '?auth=' + token) // <> explicitly tells what data we expect to get back
-    .map(
-      // (response: Response) => { // This is for the .http.get()
-        // const recipes: Recipe[] = response.json(); needed for .http.get()
-      (recipes) => { // By default, the httpClient will automatically extract the body of the response
-        for (let recipe of recipes) {
-          if (!recipe['ingredients']) {
-            console.log(recipe);
-            recipe['ingredients'] = [];
-          }
+  // This is for getting information from text data, normal is json
+  //
+  //   this.httpClient.get(this.dbServer + '?auth=' + token, {
+  //     observe: 'response', // This will not automatically extract the body data, but give the full response
+  //     responseType: 'text' // Default = json, alternatives = blob, arrayBuffer
+  //   }).map(
+  //     (recipes) => {
+  //       console.log(recipes)
+  //       return [];
+  //     }
+  //   ).subscribe(
+  //     (recipes: Recipe[]) => {
+  //       this.recipeService.setRecipes(recipes);
+  //     }
+  //   );
+  // }
+
+  //This is the base for httpClient with get/put requests without advanced configuration
+
+  this.httpClient.get<Recipe[]>(this.dbServer + '?auth=' + token).map( // <> explicitly tells what data we expect to get back
+    // (response: Response) => { // This is for the .http.get()
+      // const recipes: Recipe[] = response.json(); needed for .http.get()
+    (recipes) => { // By default, the httpClient will automatically extract the body of the response
+      for (let recipe of recipes) {
+        if (!recipe['ingredients']) {
+          console.log(recipe);
+          recipe['ingredients'] = [];
         }
-        return recipes;
       }
-    ).subscribe(
-      (recipes: Recipe[]) => {
-        this.recipeService.setRecipes(recipes);
-      }
-    );
-  }
-
-
+      return recipes;
+    }
+  ).subscribe(
+    (recipes: Recipe[]) => {
+      this.recipeService.setRecipes(recipes);
+    }
+  );
+}
 }
