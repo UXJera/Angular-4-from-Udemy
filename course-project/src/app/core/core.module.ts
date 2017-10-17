@@ -16,6 +16,7 @@ import { AuthService} from './../auth/auth.service';
 import { ShoppingListService } from './../shopping-list/shopping-list.service';
 
 import { AuthInterceptor } from '../shared/auth.interceptor';
+import { LoggingInterceptor } from '../shared/logging.interceptor';
 
 //import { AuthGuard }  from './../auth/auth-guard.service';
 
@@ -43,6 +44,11 @@ import { AuthInterceptor } from '../shared/auth.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true // Allows you to use multiple interceptors
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptor,
+      multi: true
     }
     //AuthGuard // Only used in Recipes Routing
   ]
