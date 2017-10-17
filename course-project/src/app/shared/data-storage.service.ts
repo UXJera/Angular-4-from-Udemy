@@ -42,15 +42,11 @@ export class DataStorageService {
       this.recipeService.getRecipes(),
       {
         reportProgress: true, // Useful if uploading or downloading something
-        params: new HttpParams().set('auth', token)
+        // params: new HttpParams().set('auth', token)
       }
     ) // The code above just makes the request, but does not post the data back to Angular. The code below accesses it
     return this.httpClient.request(req)
   }
-
-
-
-
 
   getRecipes() {
     const token = this.authService.getToken();
@@ -60,7 +56,7 @@ export class DataStorageService {
     this.httpClient.get(this.dbServer, {
       observe: 'body', // This will not automatically extract the body data, but give the full response
       responseType: 'json', // Default = json, alternatives = blob, arrayBuffer, text
-      params: new HttpParams().set('auth', token)
+      // params: new HttpParams().set('auth', token)
     }).map(
       (recipes) => {
         console.log(recipes)
