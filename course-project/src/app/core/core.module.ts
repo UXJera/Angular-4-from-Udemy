@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from '../app-routing.module';
 
@@ -12,8 +13,11 @@ import { FooterComponent } from './footer/footer.component';
 import { RecipeService } from './../recipes/recipe.service';
 import { DataStorageService} from './../shared/data-storage.service';
 import { AuthService} from './../auth/auth.service';
-//import { AuthGuard }  from './../auth/auth-guard.service';
 import { ShoppingListService } from './../shopping-list/shopping-list.service';
+
+import { AuthInterceptor } from '../shared/auth.interceptor';
+
+//import { AuthGuard }  from './../auth/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -35,6 +39,11 @@ import { ShoppingListService } from './../shopping-list/shopping-list.service';
     RecipeService,
     DataStorageService,
     AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true // Allows you to use multiple interceptors
+    }
     //AuthGuard // Only used in Recipes Routing
   ]
 })
